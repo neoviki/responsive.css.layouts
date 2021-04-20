@@ -1,0 +1,200 @@
+:root {
+  --layer1-color: white;
+  --layer2-color: black;
+  --font-color: black;
+  --font-size-l: 25px;
+  --font-size-m: 20px;
+  --font-size-s: 15px;
+
+  --grid-border: 4px solid black;
+  --grid-item-border: 2px solid blue;
+
+  /*##################  GRID DIMENSION #################*/
+
+  /* Square Grid    */
+  --grid-cell-width: 370px; /* 300*/
+  --grid-cell-height: 300px; /*250*/
+
+  /*##################  GRID ALIGNMENT #################*/
+  /* Header Grid    */
+  --header-padding: 10px;
+  --header-col-gap: 10px;
+  --header-row-gap: 10px;
+
+  /* Square Grid   */
+  --grid-cell-row-gap: 10px;
+  --grid-cell-col-gap: 10px;
+  --grid-cell-padding: 10px;
+
+  /*##################  GRID COLORS    #################*/
+  /* Header Grid    */
+  --header-bg-color: var(var(--layer1-color));
+
+  /* Square Grid */
+  --grid-cell-bg-color: var(--layer1-color);
+
+  /*##################  GRID ITEM COLORS #################*/
+
+  /* Header Grid Items   */
+  --header-item-fg-color: var(--layer2-color);
+  --header-item-bg-color: var(--layer1-color);
+  --header-item-border-color: var(--layer2-color);
+
+  /* Square Grid Item  */
+  --grid-cell-item-bg-color: var(--layer1-color);
+  --grid-cell-item-fg-color: var(--font-color);
+  --grid-cell-item-border-color: var(--layer2-color);
+
+  /*##################  GRID ITEM BORDERS #################*/
+  /* Header Grid Items */
+  --header-item-border-thickness: 0px;
+
+  /* Square Grid Items */
+  --grid-cell-item-border-thickness: 0px;
+}
+
+body {
+  background: var(--layer1-color);
+}
+
+/* for screen width > 1200*/
+.ruler {
+  border: var(--grid-border);
+  display: grid;
+  position: relative;
+  grid-column-gap: var(--header-col-gap);
+  grid-row-gap: var(--header-row-gap);
+  /*2 columns [ each 1fr correspond to one column ]*/
+  grid-template-columns: 1fr 1fr;
+  background-color: var(--header-bg-color);
+  padding: var(--header-padding);
+}
+
+.ruler-item {
+  border: var(--grid-item-border);
+  display: flex;
+  color: var(--header-item-fg-color);
+  background-color: var(--header-item-bg-color);
+  height: 30px; /* grid row height*/
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: var(--font-size-m);
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  border: var(--grid-border);
+  display: grid;
+  position: relative;
+  grid-column-gap: var(--grid-cell-col-gap);
+  grid-row-gap: var(--grid-cell-row-gap);
+  --n-col-grids: 4;
+  /*3 columns [ each auto correspond to one column ]*/
+  grid-template-columns: repeat(var(--n-col-grids), var(--grid-cell-width));
+  background-color: var(--grid-cell-bg-color);
+  align-items: center;
+  justify-content: center;
+  padding: var(--grid-cell-padding);
+}
+
+.box-item {
+  border: var(--grid-item-border);
+  display: flex;
+  color: var(--grid-cell-item-fg-color);
+  background-color: var(--grid-cell-item-bg-color);
+  height: var(--grid-cell-height); /* grid height*/
+  width: auto;
+  padding: 20px; /* pading for text inside grid*/
+  font-size: var(--font-size-l);
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Property for screen width less than or equal to 700px */
+@media (max-width: 1300px) {
+  /*Property for box Class*/
+  .box {
+    /*number of grid cells along each column - calc() result is always integer*/
+    --n-col-grids: 3;
+  }
+}
+
+/* Property for screen width less than or equal to 700px */
+@media (max-width: 1200px) {
+  /*Property for box Class*/
+  .box {
+    /*number of grid cells along each column - calc() result is always integer*/
+    --n-col-grids: 2;
+  }
+}
+
+/* Property for screen width less than or equal to 700px */
+@media (max-width: 1100px) {
+  /*Property for box Class*/
+  .box {
+    /*number of grid cells along each column - calc() result is always integer*/
+    --n-col-grids: 2;
+  }
+}
+
+/* Property for screen width less than or equal to 700px */
+@media (max-width: 1000px) {
+  /*Property for box Class*/
+  .box {
+    /*number of grid cells along each column - calc() result is always integer*/
+    --n-col-grids: 2;
+  }
+}
+
+/* Property for screen width less than or equal to 700px */
+@media (max-width: 900px) {
+  /*Property for box Class*/
+  .box {
+    /*number of grid cells along each column - calc() result is always integer*/
+    --n-col-grids: 2;
+  }
+}
+
+/* Property for screen width less than or equal to 700px */
+@media (max-width: 800px) {
+  /*Property for box Class*/
+  .box {
+    /*number of grid cells along each column - calc() result is always integer*/
+    --n-col-grids: 1;
+  }
+}
+
+/* Property for screen width less than or equal to 700px */
+@media (max-width: 700px) {
+  /*Property for box Class*/
+  .box {
+    /*number of grid cells along each column - calc() result is always integer*/
+    --n-col-grids: 1;
+  }
+  .ruler {
+    grid-template-columns: 1fr;
+  }
+  .ruler-item {
+    font-size: var(--font-size-m);
+  }
+}
+
+/* Property for screen width less than or equal to 500px */
+@media (max-width: 500px) {
+  /*Property for box Class*/
+  .box {
+    /*number of grid cells along each column - calc() result is always integer*/
+    --n-col-grids: 1;
+  }
+  .ruler {
+    grid-template-columns: 1fr;
+  }
+  .ruler-item {
+    font-size: var(--font-size-m);
+  }
+}
