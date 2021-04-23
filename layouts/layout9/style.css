@@ -1,0 +1,94 @@
+:root {
+  --layer1-color: white;
+  --layer2-color: black;
+  --font-color: black;
+  --font-size-l: 25px;
+  --font-size-m: 20px;
+  --font-size-s: 15px;
+
+  --border-grid: 4px solid black;
+  --border-grid-item: 2px solid blue;
+
+  /*##################  GRID DIMENSION #################*/
+
+  /* box Grid    */
+  --grid-cell-width: 500px;
+  --grid-cell-height: 500px;
+
+  /*##################  GRID ALIGNMENT #################*/
+  /* Header Grid    */
+  --header-padding: 10px;
+  --header-col-gap: 10px;
+  --header-row-gap: 10px;
+
+  /* box Grid   */
+  --grid-cell-row-gap: 1px;
+  --grid-cell-col-gap: 1px;
+  --grid-cell-padding: 1px;
+
+  /*##################  GRID COLORS    #################*/
+  /* Header Grid    */
+  --header-bg-color: var(--layer1-color);
+
+  /* box Grid */
+  --grid-cell-bg-color: var(--layer1-color);
+
+  /*##################  GRID ITEM COLORS #################*/
+
+  /* Header Grid Items   */
+  --header-item-fg-color: var(--font-color);
+  --header-item-bg-color: var(--layer1-color);
+  --header-item-border-color: var(--layer2-color);
+
+  /* box Grid Item  */
+  --grid-cell-item-bg-color: var(var(--layer2-color));
+  --grid-cell-item-fg-color: var(var(--font-color));
+  --grid-cell-item-border-color: var(--layer2-color);
+
+  /*##################  GRID ITEM BORDERS #################*/
+  /* Header Grid Items */
+  --header-item-border-thickness: 1px;
+
+  /* box Grid Items */
+  --grid-cell-item-border-thickness: 1px;
+}
+
+body {
+  background: var(--layer1-color);
+}
+
+.box {
+  border: var(--border-grid);
+  display: grid;
+  position: relative;
+  grid-column-gap: var(--grid-cell-col-gap);
+  grid-row-gap: var(--grid-cell-row-gap);
+  /*3 columns [ each auto correspond to one column ]*/
+  grid-template-columns: repeat(2, var(--grid-cell-width));
+  background-color: var(--grid-cell-bg-color);
+  align-items: center;
+  justify-content: center;
+  padding: var(--grid-cell-padding);
+}
+
+.box-item {
+  display: flex;
+  color: var(--grid-cell-item-fg-color);
+  background-color: var(--grid-cell-item-bg-color);
+  border: var(--border-grid-item);
+  height: var(--grid-cell-height); /* grid height*/
+  width: auto;
+  padding: 20px; /* pading for text inside grid*/
+  font-size: 40px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Property for screen width less than or equal to 700px */
+@media (max-width: 1020px) {
+  /*Property for box Class*/
+  .box {
+    grid-template-columns: repeat(1, var(--grid-cell-width));
+  }
+}

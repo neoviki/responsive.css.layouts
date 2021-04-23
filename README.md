@@ -32,7 +32,7 @@
 
 ![alt text](layouts/layout8/demo.png)
 
-#### layouts/layout9
+#### layouts/layout9    [ Mobile Friendly - Simple 500x500x2 design ]
 
 ![alt text](layouts/layout9/demo.png)
 
